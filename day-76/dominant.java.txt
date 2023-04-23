@@ -1,0 +1,32 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static int dominantNumber(int[] arr, int n) {
+		 int freq[] = new int[100001];
+		    for(int i=0;i<n;i++){
+		        freq[arr[i]]++;
+		    }
+		    
+		    int max=0;
+		    int maxe =0;
+		    int count = 0;
+		    for(int i=0;i<n;i++){
+		        if(freq[arr[i]]>max ){
+		            maxe = arr[i];
+		            max = freq[arr[i]];
+		        }
+		        
+		        if(freq[arr[i]]==max && arr[i]!=maxe){
+		            count++;
+		        }
+		    }
+		    
+			int num = 0;
+		    int res = count/max;
+		    if(res>0){
+		        return -1;
+		    }else{
+		        return maxe;
+		    }
+	}
+}
